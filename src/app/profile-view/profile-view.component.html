@@ -1,0 +1,161 @@
+<header style="background-color: black">
+  <button
+    (click)="backToMovies()"
+    mat-raised-button
+    color="accent"
+    style="margin: 10px; width: 100px"
+  >
+    Back
+  </button>
+  <button
+    (click)="logOut()"
+    mat-raised-button
+    color="accent"
+    style="width: 100px"
+  >
+    Log out
+  </button>
+</header>
+
+<!-- <div class="profile-div">
+  <div class="watchlist-div" *ngIf="movies.length > 0">
+    <h2>Watchlist</h2>
+    <ul *ngFor="let movieID of currentFavs">
+      <li>{{ getMovieName(movieID) }}</li>
+    </ul>
+  </div>
+  <div>
+    <div class="details-div">
+      <h2>Current Details</h2>
+      <p>Username: {{ currentUser.Username }}</p>
+      <p>Email: {{ currentUser.Email }}</p>
+      <p>Birthday: {{ currentUser?.Birthday | date }}</p>
+    </div>
+    <mat-card class="details-card">
+      <mat-card-header>
+        <mat-card-title>Edit Your Profile</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form>
+          <mat-form-field>
+            <input
+              matInput
+              [(ngModel)]="userData.Username"
+              type="text"
+              placeholder="Username"
+              name="Username"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              [(ngModel)]="userData.Password"
+              type="password"
+              placeholder="Password"
+              name="Password"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              [(ngModel)]="userData.Email"
+              type="email"
+              placeholder="Email"
+              name="Email"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              [(ngModel)]="userData.Birthday"
+              type="date"
+              placeholder="Birthday"
+              name="Birthday"
+            />
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions style="text-align: center; margin-bottom: 5px">
+        <button mat-raised-button (click)="editUserInfo()" color="basic">
+          Save Changes
+        </button>
+        <button mat-raised-button (click)="deleteUserProfile()" color="basic">
+            Delete Profile
+          </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div> -->
+<div class="formContainer">
+  <div class="wrapper form">
+    <!-- Header -->
+
+    <div class="header" tabindex="1">
+      <svg
+        class="logo"
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M54.75 23.5a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM54.75 77a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM77 54.75a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9ZM50.25 61c-6.075 0-11-4.925-11-11s4.925-11 11-11 11 4.925 11 11-4.925 11-11 11ZM23.5 54.75a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9ZM65.983 72.347a4.5 4.5 0 1 1 6.364-6.364 4.5 4.5 0 0 1-6.364 6.364ZM28.153 34.517a4.5 4.5 0 1 1 6.364-6.364 4.5 4.5 0 0 1-6.364 6.364ZM72.347 34.517a4.5 4.5 0 1 1-6.364-6.364 4.5 4.5 0 0 1 6.364 6.364ZM34.517 72.347a4.5 4.5 0 1 1-6.364-6.364 4.5 4.5 0 0 1 6.364 6.364Z"
+        />
+      </svg>
+      <h1 class="title" tabindex="0">Edit Your Account Info Here !</h1>
+    </div>
+
+    <!--  Main form  -->
+
+    <div>
+      <label for="username">User Name</label>
+      <input
+        type="text"
+        id="username"
+        [(ngModel)]="userData.Username"
+        placeholder=""
+      />
+
+      <label for="email">Email address</label>
+      <input
+        type="email"
+        id="email"
+        placeholder=""
+        [(ngModel)]="userData.Email"
+      />
+      <label for="password">Password</label>
+      <input
+        type="password"
+        [(ngModel)]="userData.Password"
+        (change)="onChangePassword($event.target)"
+        id="Enter New Password"
+        placeholder=""
+      />
+
+      <label for="bdate">Birth Day</label>
+      <input
+        type="date"
+        id="password"
+        [(ngModel)]="userData.Birthday"
+        placeholder=""
+      />
+
+      <div class="password-settings"></div>
+
+      <button mat-raised-button (click)="editUserInfo()" class="submit">
+        Save Changes
+      </button>
+      <button
+        mat-raised-button
+        (click)="deleteUserProfile()"
+        class="submit delete"
+      >
+        Delete Profile
+      </button>
+    </div>
+
+    <!--  Footer  -->
+
+    <div class="footer" tabindex="1"></div>
+  </div>
+</div>
